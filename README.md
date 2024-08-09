@@ -43,3 +43,8 @@ I will let the Mayo clinic deal with the details.
 https://www.mayoclinic.org/diseases-conditions/high-blood-pressure/in-depth/blood-pressure/art-20050982
 
 
+https://www.django-rest-framework.org/api-guide/authentication/
+
+https://www.djangoproject.com/
+
+https://medium.com/django-unleashed/token-based-authentication-and-authorization-in-django-rest-framework-user-and-permissions-347c7cc472e9
