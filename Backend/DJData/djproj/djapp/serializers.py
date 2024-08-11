@@ -1,23 +1,29 @@
 from rest_framework import serializers
-from .models import BpMeasurement
+from .models import BpMeasurement, Patient
 
 class BpSerializer(serializers.ModelSerializer):
+
+
     class Meta:
         model = BpMeasurement
         fields = [
             'systolic', 
             'diastolic', 
-            'pulse', 
-            'patientId', 
+            'pulse',
+            'patient', 
             'measDateTime', 
             'note'
         ]
-        
 
 
-    # systolic = models.PositiveSmallIntegerField()
-    # diatolic = models.PositiveSmallIntegerField()
-    # pulse = models.PositiveSmallIntegerField()
-    # patientId = models.PositiveIntegerField()
-    # testDateTime = models.DateTimeField()
-    # note = models.CharField(max_length=500)
+class PatientSerilizer(serializers.ModelSerializer):
+    bp_measurements = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = Patient 
+        fields = [
+            'id',
+            'username',
+            'email',
+            'bp_measurements', 
+        ]

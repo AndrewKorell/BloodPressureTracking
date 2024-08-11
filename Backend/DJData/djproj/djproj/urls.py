@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.authtoken.views import obtain_auth_token
-from .views import BloodDataView
+from .views import BloodDataView, PatientView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/token', obtain_auth_token, name='obtain'),
     path('', include('djapp.urls')),
-    path('bpdata', BloodDataView.as_view(), name='bpdata')
+    path('bpdata/<int:pk>', BloodDataView.as_view(), name='bpdata'),
+    path('patient/<str:pk>', PatientView.as_view(), name='patient'),
+    path('patient', PatientView.as_view(), name='patient')
 ]
