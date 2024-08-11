@@ -4,6 +4,11 @@ The purpose here is to create a full stack implementation of a blood pressure tr
 
 We also need the ability to cache data locally. 
 
+# Wireframe 
+
+![BPPressureApp drawio](https://github.com/user-attachments/assets/9efc7660-0e82-4dda-9510-6145b8f2b19d)
+
+
 # Features 
 
 1. Allow user to create an account.
