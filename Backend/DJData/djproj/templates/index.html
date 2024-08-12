@@ -43,29 +43,20 @@
     
           <nav id="navmenu" class="navmenu">
             <ul>
-              <!-- <li><a href="#hero" class="active">Home<br></a></li>
+             <!-- <li><a href="#hero" class="active">Home<br></a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#team">Team</a></li>
+              <li><a href="#team">Team</a></li> -->
               <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
                   <li><a href="#">Dropdown 1</a></li>
-                  <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
-                    </ul>
-                  </li>
                   <li><a href="#">Dropdown 2</a></li>
                   <li><a href="#">Dropdown 3</a></li>
                   <li><a href="#">Dropdown 4</a></li>
                 </ul>
               </li>
-              <li><a href="#contact">Contact</a></li> -->
+              <li><a href="#contact">Contact</a></li>
               {% if user.is_authenticated %}
               <a class="btn-logout" href="logout">Logout</a>
               {% else %}
@@ -82,72 +73,90 @@
     <main>
 
 
-            <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <!-- Submision section  Section -->
+    <section id="bpmeas" class="bpmeas">
 
+      <div class="container-fluid container-xl position-relative d-flex align-items-center"></div>
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <h2>Your Latest Log</h2>
           <p>Add your latest blood pressure test</p>
         </div><!-- End Section Title -->
-  
+        
+
+
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-            {% for message in bpmessages %}
-            <h5>{{message}}</h5>
-            {% endfor %}
-          <div class="row gy-4">
-            <div class="col-lg-8">
-              <form action="submitbplog" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                <div class="row gy-4">
-  
-                  <div class="col-md-6">
-                    <label>Systolic Pressure</label>
-                    <input title="Systolic Pressure" type="number" name="systolic" class="form-control" required="true">
-                  </div>
-  
-                  <div class="col-md-6 ">
-                    <label>Diastolic Pressure</label>
-                    <input title="Diastolic Pressure" type="number" class="form-control" name="diastolic" required="true">
-                  </div>
+            <div class="row">
+              {% for message in bpmessages %}
+              <h3>{{message}}</h3>
+              {% endfor %}
+            </div>
 
-                  <div class="col-md-6 ">
-                    <label>Pressure</label>
-                    <input type="number" class="form-control" name="pulse" required="true">
-                  </div>
-
-                  <div class="col-md-6 ">
-                    <label>Weight</label>
-                    <input type="number" class="form-control" name="weight" required="false">
-                  </div>
-
-                  <div class="col-md-6 ">
-                    <label>When the masurement was taken</label>
-                    <input type="datetime" class="form-control" name="datatime" required="true">
-                  </div>
-
-
+            <div class="row align-items-start">
+              <div class=col>
+                <select class="form-select">
+                  {% for patient in patients %}
+                  <option selected>{{ patient }}</option>
+                  {% endfor %}
+                </select>
+              </div>  
+                
+              <div class="col">
+                <button class="btn btn-secondary" type="newpatient">New Patient</button>
+               </div>
   
-                  <div class="col-md-12">
-                    <label>Note</label>
-                    <textarea class="form-control" name="note" rows="3" placeholder="List anything that might affect blood pressure" required=""></textarea>
-                  </div>
-  
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-  
-                    <button type="submit">Submit</button>
-                  </div>
-  
+            </div>
+
+            <form action="submitbplog" method="POST" class="bp-submit-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="container">
+
+                <div class="row">
+                  <p>Systolic Pressure</p>
+                  <input title="Systolic Pressure" type="text" name="systolic" class="form-control" required="true">
                 </div>
-              </form>
-            </div><!-- End Contact Form -->
-  
-          </div>
-  
+
+                <div class="row">
+                  <p>Diastolic Pressure</p>
+                  <input title="Diastolic Pressure" type="text" class="form-control" name="diastolic" required="true">
+                </div>
+
+                <div class="row">
+                  <p>Beats Per Minute</p>
+                  <input type="text" class="form-control" name="pulse" required="true">
+                </div>
+
+                <!-- <div class="row">
+                  <p>Weight</p>
+                  <input type="text" class="form-control" name="weight" required="false">
+                </div> -->
+                
+                <div class="row">
+                  <p>Note</p>
+                  <textarea type="text" class="form-control" name="note" rows="3" placeholder="List anything that might affect blood pressure" required=""></textarea>
+                </div>
+
+                <div class="row align-items-start">
+                  <p>When Measurement was taken</p>
+                  <select class="form-select">
+                    <option selected>Use Current Time</option>
+                    <option value="1">Set Time Manually</option>
+                  </select>
+                </div>
+
+
+
+                <div class="row">
+                  <!-- <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div> -->
+
+                  <button class="btn btn-secondary" type="submit">Submit</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
         </div>
-  
       </section><!-- /Contact Section -->
   
     </main>  

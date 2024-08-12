@@ -293,6 +293,155 @@ h6 {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
 
+
+
+/*---------------------------------------------------------------
+# Blood Pressure submission
+----------------------------------------------------------------*/
+
+@media (min-width: 1000px) {
+  .bpsubmit {
+    padding: 0;
+  }
+
+  .bpsumbit ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .bpsubmit .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .bpsubmit li {
+    position: relative;
+  }
+
+  .bpsubmit a,
+  .bpsubmit a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 16px;
+    font-family: var(--nav-font);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .bpsubmit a i,
+  .bpsubmit a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .bpsubmit li:last-child a {
+    padding-right: 0;
+  }
+
+  .bpsubmit li:hover>a,
+  .bpsubmit .active,
+  .bpsubmit .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .bpsubmit .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .bpsubmit .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .bpsubmit .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .bpsubmit .dropdown ul a:hover,
+  .bpsubmit .dropdown ul .active:hover,
+  .bpsubmit .dropdown ul li:hover>a {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .bpsubmit .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .bpsubmit .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .bpsubmit .dropdown .dropdown:hover>ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+
+  .bpsubmit .btn_submitbp,
+  .bpsubmit .btn_submitpb:focus {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    font-size: 14px;
+    padding: 8px 25px;
+    margin: 0 0 0 30px;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  .bpsubmit .btn_submitbp:hover,
+  .bpsubmit .btn_submitbp:focus:hover {
+    color: var(--contrast-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  }
+
+  .bpsubmit .btn_newpatient,
+  .bpsubmit .btn_newpatient:focus {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    font-size: 14px;
+    padding: 8px 25px;
+    margin: 0 0 0 30px;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  .bpsubmit .btn_newpatient:hover,
+  .bpsubmit .btn_newpatient:focus:hover {
+    color: var(--contrast-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 15%);
+  }
+
+}
+
+
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -1721,6 +1870,7 @@ section,
   color: var(--accent-color);
 }
 
+
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
@@ -2042,4 +2192,116 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+
+/*--------------------------------------------------------------
+# Measurement Section
+--------------------------------------------------------------*/
+.bpmeas .info-item+.info-item {
+  margin-top: 40px;
+}
+
+.bpmeas .info-item i {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  margin-right: 15px;
+}
+
+.bpmeas .info-item h3 {
+  padding: 0;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.bpmeas .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  vertical-align: bottom;
+}
+
+.bpmeas button[type=selpatient],
+.bpmeas button[type=newpatient] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 4px;
+  width: 100%
+}
+
+.bpmeas .bp-submit-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.bpmeas .bp-submit-form {
+  height: 100%;
+}
+
+.bpmeas .bp-submit-form p {
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: 16px;
+  vertical-align: bottom;
+}
+
+.bpmeas .bp-submit-form input[type=number],
+.bpmeas .bp-submit-form input[type=text],
+.bpmeas .bp-submit-form input[type=email],
+.bpmeas .bp-submit-form textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 0;
+  color: var(--default-color);
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.bpmeas .bp-submit-form input[type=number]:focus,
+.bpmeas .bp-submit-form input[type=text]:focus,
+.bpmeas .bp-submit-form input[type=email]:focus,
+.bpmeas .bp-submit-form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.bpmeas .bp-submit-form input[type=number]::placeholder,
+.bpmeas .bp-submit-form input[type=text]::placeholder,
+.bpmeas .bp-submit-form input[type=email]::placeholder,
+.bpmeas .bp-submit-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+.bpmeas .bp-submit-form button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.bpmeas .bp-submit-form button[type=newpatient] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 30px;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.bpmeas .bp-submit-form button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
